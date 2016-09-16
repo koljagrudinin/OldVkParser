@@ -1,0 +1,11 @@
+﻿<Window x:Class="WpfApplication1.SelectGroupForms.SelectGroupForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SelectGroupForm" Height="484" Width="258" Loaded="Window_Loaded">
+    
+    <Grid>
+        
+        <Button Content="Закончить добавление" Height="23" HorizontalAlignment="Left" Margin="12,0,0,12" Name="button1" VerticalAlignment="Bottom" Width="212" Click="button1_Click" />
+        <ListBox Height="392" HorizontalAlignment="Left" Margin="12,12,0,0" Name="listBox1" VerticalAlignment="Top" Width="212" ItemsSource="{Binding}" SelectionMode="Multiple" SelectionChanged="listBox1_SelectionChanged" />
+    </Grid>
+</Window>

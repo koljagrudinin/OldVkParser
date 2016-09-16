@@ -1,0 +1,10 @@
+http://api.vk.com/blank.html#
+access_token=1556d0161514ae621514ae6251153f0ae00151415018e7c319fc853cde869de
+&
+expires_in=0
+&
+user_id=4357748
+&
+secret=9c5ea43c0b38712d6e
+
+http://api.vk.com/method/groups.getById.xml?gid=habr&access_token=1556d0161514ae621514ae6251153f0ae00151415018e7c319fc853cde869de&sig=42b7ee90705d081cd5290a363d5cb8ce

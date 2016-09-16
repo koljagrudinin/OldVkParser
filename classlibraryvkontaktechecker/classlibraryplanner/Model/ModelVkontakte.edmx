@@ -1,0 +1,949 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelVkontakte.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ModelVkontakteStoreContainer">
+    <EntitySet Name="TokenListEnt" EntityType="ModelVkontakte.Store.TokenListEnt" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GroupsEnt" EntityType="ModelVkontakte.Store.GroupsEnt" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BasicMetricksResultTableEnt" EntityType="ModelVkontakte.Store.BasicMetricksResultTableEnt" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListsResultTableEnt" EntityType="ModelVkontakte.Store.ListsResultTableEnt" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OperationTableEnt" EntityType="ModelVkontakte.Store.OperationTableEnt" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UsersНабор" EntityType="ModelVkontakte.Store.UsersНабор" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CommentsEnt" EntityType="ModelVkontakte.Store.CommentsEnt" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PostsEnd" EntityType="ModelVkontakte.Store.PostsEnd" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ErrorCodesEnt" EntityType="ModelVkontakte.Store.ErrorCodesEnt" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ErrorCodeStatesEnt" EntityType="ModelVkontakte.Store.ErrorCodeStatesEnt" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GroupsTokenList" EntityType="ModelVkontakte.Store.GroupsTokenList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CommentsUsers" EntityType="ModelVkontakte.Store.CommentsUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PostsUsers" EntityType="ModelVkontakte.Store.PostsUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListsResultTableUsers" EntityType="ModelVkontakte.Store.ListsResultTableUsers" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_GroupsTokenList_Groups" Association="ModelVkontakte.Store.FK_GroupsTokenList_Groups">
+      <End Role="Groups" EntitySet="GroupsEnt" />
+      <End Role="GroupsTokenList" EntitySet="GroupsTokenList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupsTokenList_TokenList" Association="ModelVkontakte.Store.FK_GroupsTokenList_TokenList">
+      <End Role="TokenList" EntitySet="TokenListEnt" />
+      <End Role="GroupsTokenList" EntitySet="GroupsTokenList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommentsUsers_Comments" Association="ModelVkontakte.Store.FK_CommentsUsers_Comments">
+      <End Role="Comments" EntitySet="CommentsEnt" />
+      <End Role="CommentsUsers" EntitySet="CommentsUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommentsUsers_Users" Association="ModelVkontakte.Store.FK_CommentsUsers_Users">
+      <End Role="Users" EntitySet="UsersНабор" />
+      <End Role="CommentsUsers" EntitySet="CommentsUsers" />
+    </AssociationSet>
+    <AssociationSet Name="CommentsUsers1" Association="ModelVkontakte.Store.CommentsUsers1">
+      <End Role="Comments" EntitySet="CommentsEnt" />
+      <End Role="Users" EntitySet="UsersНабор" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PostsUsers_Posts" Association="ModelVkontakte.Store.FK_PostsUsers_Posts">
+      <End Role="Posts" EntitySet="PostsEnd" />
+      <End Role="PostsUsers" EntitySet="PostsUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PostsUsers_Users" Association="ModelVkontakte.Store.FK_PostsUsers_Users">
+      <End Role="Users" EntitySet="UsersНабор" />
+      <End Role="PostsUsers" EntitySet="PostsUsers" />
+    </AssociationSet>
+    <AssociationSet Name="PostsUsers1" Association="ModelVkontakte.Store.PostsUsers1">
+      <End Role="Posts" EntitySet="PostsEnd" />
+      <End Role="Users" EntitySet="UsersНабор" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListsResultTableUsers_ListsResultTable" Association="ModelVkontakte.Store.FK_ListsResultTableUsers_ListsResultTable">
+      <End Role="ListsResultTable" EntitySet="ListsResultTableEnt" />
+      <End Role="ListsResultTableUsers" EntitySet="ListsResultTableUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListsResultTableUsers_Users" Association="ModelVkontakte.Store.FK_ListsResultTableUsers_Users">
+      <End Role="Users" EntitySet="UsersНабор" />
+      <End Role="ListsResultTableUsers" EntitySet="ListsResultTableUsers" />
+    </AssociationSet>
+    <AssociationSet Name="OperationTableBasicMetricksResultTable" Association="ModelVkontakte.Store.OperationTableBasicMetricksResultTable">
+      <End Role="OperationTable" EntitySet="OperationTableEnt" />
+      <End Role="BasicMetricksResultTable" EntitySet="BasicMetricksResultTableEnt" />
+    </AssociationSet>
+    <AssociationSet Name="OperationTableListsResults" Association="ModelVkontakte.Store.OperationTableListsResults">
+      <End Role="OperationTable" EntitySet="OperationTableEnt" />
+      <End Role="ListsResults" EntitySet="ListsResultTableEnt" />
+    </AssociationSet>
+    <AssociationSet Name="ErrorCodesOperations" Association="ModelVkontakte.Store.ErrorCodesOperations">
+      <End Role="ErrorCodes" EntitySet="ErrorCodesEnt" />
+      <End Role="Operations" EntitySet="OperationTableEnt" />
+    </AssociationSet>
+    <AssociationSet Name="ErrorCodeStatesErrorCodes" Association="ModelVkontakte.Store.ErrorCodeStatesErrorCodes">
+      <End Role="ErrorCodeStates" EntitySet="ErrorCodeStatesEnt" />
+      <End Role="ErrorCodes" EntitySet="ErrorCodesEnt" />
+    </AssociationSet>
+    <AssociationSet Name="PostsComments" Association="ModelVkontakte.Store.PostsComments">
+      <End Role="Posts" EntitySet="PostsEnd" />
+      <End Role="Comments" EntitySet="CommentsEnt" />
+    </AssociationSet>
+    <AssociationSet Name="ListsResultsPosts" Association="ModelVkontakte.Store.ListsResultsPosts">
+      <End Role="ListsResults" EntitySet="ListsResultTableEnt" />
+      <End Role="Posts" EntitySet="PostsEnd" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TokenListEnt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Token" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SecretKey" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="GroupsEnt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BasicMetrickRegularReading" Type="int" Nullable="false" />
+    <Property Name="BasicMetricksTimeOut" Type="int" Nullable="false" />
+    <Property Name="ListsRegulerReading" Type="int" Nullable="false" />
+    <Property Name="ListsTimeOut" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BasicMetricksResultTableEnt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostCount" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AudioCount" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="VideoCount" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MembersCount" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OperationTableBasicMetricksResultTable_BasicMetricksResultTable_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ListsResultTableEnt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OperationTableListsResults_ListsResults_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OperationTableEnt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+    <Property Name="isSuccess" Type="bit" Nullable="false" />
+    <Property Name="GroupId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ErrorCodes_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="UsersНабор">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommentsEnt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommentId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserAuthor_Id" Type="int" Nullable="false" />
+    <Property Name="Posts_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PostsEnd">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserAuthor_Id" Type="int" Nullable="false" />
+    <Property Name="ListsResults_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ErrorCodesEnt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MethodErrorId" Type="int" Nullable="false" />
+    <Property Name="ErrorCodeState_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ErrorCodeStatesEnt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ErrorId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GroupsTokenList">
+    <Key>
+      <PropertyRef Name="Groups_Id" />
+      <PropertyRef Name="TokenList_Id" />
+    </Key>
+    <Property Name="Groups_Id" Type="int" Nullable="false" />
+    <Property Name="TokenList_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommentsUsers">
+    <Key>
+      <PropertyRef Name="LikedComments_Id" />
+      <PropertyRef Name="UsersLike_Id" />
+    </Key>
+    <Property Name="LikedComments_Id" Type="int" Nullable="false" />
+    <Property Name="UsersLike_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PostsUsers">
+    <Key>
+      <PropertyRef Name="LikedPosts_Id" />
+      <PropertyRef Name="UsersLike_Id" />
+    </Key>
+    <Property Name="LikedPosts_Id" Type="int" Nullable="false" />
+    <Property Name="UsersLike_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ListsResultTableUsers">
+    <Key>
+      <PropertyRef Name="ListsResultTables_Id" />
+      <PropertyRef Name="GroupMembers_Id" />
+    </Key>
+    <Property Name="ListsResultTables_Id" Type="int" Nullable="false" />
+    <Property Name="GroupMembers_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="CommentsUsers1">
+    <End Role="Comments" Type="ModelVkontakte.Store.CommentsEnt" Multiplicity="*" />
+    <End Role="Users" Type="ModelVkontakte.Store.UsersНабор" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="UserAuthor_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PostsUsers1">
+    <End Role="Posts" Type="ModelVkontakte.Store.PostsEnd" Multiplicity="*" />
+    <End Role="Users" Type="ModelVkontakte.Store.UsersНабор" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Posts">
+        <PropertyRef Name="UserAuthor_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OperationTableBasicMetricksResultTable">
+    <End Role="OperationTable" Type="ModelVkontakte.Store.OperationTableEnt" Multiplicity="1" />
+    <End Role="BasicMetricksResultTable" Type="ModelVkontakte.Store.BasicMetricksResultTableEnt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OperationTable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BasicMetricksResultTable">
+        <PropertyRef Name="OperationTableBasicMetricksResultTable_BasicMetricksResultTable_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OperationTableListsResults">
+    <End Role="OperationTable" Type="ModelVkontakte.Store.OperationTableEnt" Multiplicity="1" />
+    <End Role="ListsResults" Type="ModelVkontakte.Store.ListsResultTableEnt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OperationTable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ListsResults">
+        <PropertyRef Name="OperationTableListsResults_ListsResults_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ErrorCodesOperations">
+    <End Role="ErrorCodes" Type="ModelVkontakte.Store.ErrorCodesEnt" Multiplicity="0..1" />
+    <End Role="Operations" Type="ModelVkontakte.Store.OperationTableEnt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ErrorCodes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Operations">
+        <PropertyRef Name="ErrorCodes_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ErrorCodeStatesErrorCodes">
+    <End Role="ErrorCodeStates" Type="ModelVkontakte.Store.ErrorCodeStatesEnt" Multiplicity="1" />
+    <End Role="ErrorCodes" Type="ModelVkontakte.Store.ErrorCodesEnt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ErrorCodeStates">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ErrorCodes">
+        <PropertyRef Name="ErrorCodeState_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PostsComments">
+    <End Role="Posts" Type="ModelVkontakte.Store.PostsEnd" Multiplicity="1" />
+    <End Role="Comments" Type="ModelVkontakte.Store.CommentsEnt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="Posts_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ListsResultsPosts">
+    <End Role="ListsResults" Type="ModelVkontakte.Store.ListsResultTableEnt" Multiplicity="1" />
+    <End Role="Posts" Type="ModelVkontakte.Store.PostsEnd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ListsResults">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Posts">
+        <PropertyRef Name="ListsResults_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupsTokenList_Groups">
+    <End Role="Groups" Type="ModelVkontakte.Store.GroupsEnt" Multiplicity="1" />
+    <End Role="GroupsTokenList" Type="ModelVkontakte.Store.GroupsTokenList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupsTokenList">
+        <PropertyRef Name="Groups_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupsTokenList_TokenList">
+    <End Role="GroupsTokenList" Type="ModelVkontakte.Store.GroupsTokenList" Multiplicity="*" />
+    <End Role="TokenList" Type="ModelVkontakte.Store.TokenListEnt" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="TokenList">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupsTokenList">
+        <PropertyRef Name="TokenList_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommentsUsers_Comments">
+    <End Role="Comments" Type="ModelVkontakte.Store.CommentsEnt" Multiplicity="1" />
+    <End Role="CommentsUsers" Type="ModelVkontakte.Store.CommentsUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CommentsUsers">
+        <PropertyRef Name="LikedComments_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommentsUsers_Users">
+    <End Role="CommentsUsers" Type="ModelVkontakte.Store.CommentsUsers" Multiplicity="*" />
+    <End Role="Users" Type="ModelVkontakte.Store.UsersНабор" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CommentsUsers">
+        <PropertyRef Name="UsersLike_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PostsUsers_Posts">
+    <End Role="Posts" Type="ModelVkontakte.Store.PostsEnd" Multiplicity="1" />
+    <End Role="PostsUsers" Type="ModelVkontakte.Store.PostsUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PostsUsers">
+        <PropertyRef Name="LikedPosts_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PostsUsers_Users">
+    <End Role="PostsUsers" Type="ModelVkontakte.Store.PostsUsers" Multiplicity="*" />
+    <End Role="Users" Type="ModelVkontakte.Store.UsersНабор" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PostsUsers">
+        <PropertyRef Name="UsersLike_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListsResultTableUsers_ListsResultTable">
+    <End Role="ListsResultTable" Type="ModelVkontakte.Store.ListsResultTableEnt" Multiplicity="1" />
+    <End Role="ListsResultTableUsers" Type="ModelVkontakte.Store.ListsResultTableUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ListsResultTable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ListsResultTableUsers">
+        <PropertyRef Name="ListsResultTables_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListsResultTableUsers_Users">
+    <End Role="ListsResultTableUsers" Type="ModelVkontakte.Store.ListsResultTableUsers" Multiplicity="*" />
+    <End Role="Users" Type="ModelVkontakte.Store.UsersНабор" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ListsResultTableUsers">
+        <PropertyRef Name="GroupMembers_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelVkontakte" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="ModelVkontakteContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TokenListEnt" EntityType="ModelVkontakte.TokenList" />
+          <EntitySet Name="GroupsEnt" EntityType="ModelVkontakte.Groups" />
+          <AssociationSet Name="GroupsTokenList" Association="ModelVkontakte.GroupsTokenList">
+            <End Role="Groups" EntitySet="GroupsEnt" />
+            <End Role="TokenList" EntitySet="TokenListEnt" />
+          </AssociationSet>
+          <EntitySet Name="BasicMetricksResultTableEnt" EntityType="ModelVkontakte.BasicMetricksResults" />
+          <EntitySet Name="ListsResultTableEnt" EntityType="ModelVkontakte.ListsResults" />
+          <EntitySet Name="OperationTableEnt" EntityType="ModelVkontakte.Operations" />
+          <EntitySet Name="UsersНабор" EntityType="ModelVkontakte.Users" />
+          <EntitySet Name="CommentsEnt" EntityType="ModelVkontakte.Comments" />
+          <EntitySet Name="PostsEnd" EntityType="ModelVkontakte.Posts" />
+          <AssociationSet Name="CommentsUsers" Association="ModelVkontakte.CommentsUsers">
+            <End Role="Comments" EntitySet="CommentsEnt" />
+            <End Role="Users" EntitySet="UsersНабор" />
+          </AssociationSet>
+          <AssociationSet Name="CommentsUsers1" Association="ModelVkontakte.CommentsUsers1">
+            <End Role="Comments" EntitySet="CommentsEnt" />
+            <End Role="Users" EntitySet="UsersНабор" />
+          </AssociationSet>
+          <AssociationSet Name="PostsUsers" Association="ModelVkontakte.PostsUsers">
+            <End Role="Posts" EntitySet="PostsEnd" />
+            <End Role="Users" EntitySet="UsersНабор" />
+          </AssociationSet>
+          <AssociationSet Name="PostsUsers1" Association="ModelVkontakte.PostsUsers1">
+            <End Role="Posts" EntitySet="PostsEnd" />
+            <End Role="Users" EntitySet="UsersНабор" />
+          </AssociationSet>
+          <AssociationSet Name="ListsResultTableUsers" Association="ModelVkontakte.ListsResultTableUsers">
+            <End Role="ListsResultTable" EntitySet="ListsResultTableEnt" />
+            <End Role="Users" EntitySet="UsersНабор" />
+          </AssociationSet>
+          <AssociationSet Name="OperationTableBasicMetricksResultTable" Association="ModelVkontakte.OperationTableBasicMetricksResultTable">
+            <End Role="OperationTable" EntitySet="OperationTableEnt" />
+            <End Role="BasicMetricksResultTable" EntitySet="BasicMetricksResultTableEnt" />
+          </AssociationSet>
+          <AssociationSet Name="OperationTableListsResults" Association="ModelVkontakte.OperationTableListsResults">
+            <End EntitySet="OperationTableEnt" Role="OperationTable" />
+            <End EntitySet="ListsResultTableEnt" Role="ListsResults" />
+          </AssociationSet>
+          <EntitySet Name="ErrorCodesEnt" EntityType="ModelVkontakte.ErrorCodes" />
+          <AssociationSet Name="ErrorCodesOperations" Association="ModelVkontakte.ErrorCodesOperations">
+            <End Role="ErrorCodes" EntitySet="ErrorCodesEnt" />
+            <End Role="Operations" EntitySet="OperationTableEnt" />
+          </AssociationSet>
+          <EntitySet Name="ErrorCodeStatesEnt" EntityType="ModelVkontakte.ErrorCodeStates" />
+          <AssociationSet Name="ErrorCodeStatesErrorCodes" Association="ModelVkontakte.ErrorCodeStatesErrorCodes">
+            <End Role="ErrorCodeStates" EntitySet="ErrorCodeStatesEnt" />
+            <End Role="ErrorCodes" EntitySet="ErrorCodesEnt" />
+          </AssociationSet>
+          <AssociationSet Name="PostsComments" Association="ModelVkontakte.PostsComments">
+            <End Role="Posts" EntitySet="PostsEnd" />
+            <End Role="Comments" EntitySet="CommentsEnt" />
+          </AssociationSet>
+          <AssociationSet Name="ListsResultsPosts" Association="ModelVkontakte.ListsResultsPosts">
+            <End Role="ListsResults" EntitySet="ListsResultTableEnt" />
+            <End Role="Posts" EntitySet="PostsEnd" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="TokenList">
+          <Documentation>
+            <Summary>Таблица сожержашая данные для соединения</Summary>
+            <LongDescription>Таблица сожержашая данные для соединения</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Token" Nullable="false" >
+            <Documentation>
+              <Summary>Токен</Summary>
+              <LongDescription>Токен</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="SecretKey" Nullable="false" >
+            <Documentation>
+              <Summary>Секретный ключ</Summary>
+              <LongDescription>Секретный ключ</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Groups" Relationship="ModelVkontakte.GroupsTokenList" FromRole="TokenList" ToRole="Groups" />
+          <Property Type="String" Name="UserName" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="GroupId" Nullable="false" />
+          <Property Type="Int32" Name="BasicMetrickRegularReading" Nullable="false" >
+            <Documentation>
+              <Summary>Регулярность считывания базовых метрик</Summary>
+              <LongDescription>Регулярность считывания базовых метрик</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Type="Int32" Name="BasicMetricksTimeOut" Nullable="false" >
+            <Documentation>
+              <Summary>Таймаут считывания базовых метрик</Summary>
+              <LongDescription>Таймаут считывания базовых метрик</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Type="Int32" Name="ListsRegulerReading" Nullable="false" >
+            <Documentation>
+              <Summary>Регулярность считывания списков</Summary>
+              <LongDescription>Регулярность считывания списков</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Type="Int32" Name="ListsTimeOut" Nullable="false" >
+            <Documentation>
+              <Summary>Таймаут считывания списков</Summary>
+              <LongDescription>Таймаут считывания списков</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="TokenList" Relationship="ModelVkontakte.GroupsTokenList" FromRole="Groups" ToRole="TokenList" >
+            <Documentation>
+              <Summary>Список юзеров, которых можно использовать для входа в ВКонтакте</Summary>
+              <LongDescription>Список юзеров, которых можно использовать для входа в ВКонтакте</LongDescription>
+            </Documentation>
+          </NavigationProperty>
+        </EntityType>
+        <Association Name="GroupsTokenList">
+          <End Type="ModelVkontakte.Groups" Role="Groups" Multiplicity="*" />
+          <End Type="ModelVkontakte.TokenList" Role="TokenList" Multiplicity="*" />
+        </Association>
+        <EntityType Name="BasicMetricksResults">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PostCount" Nullable="false" />
+          <Property Type="String" Name="AudioCount" Nullable="false" />
+          <Property Type="String" Name="VideoCount" Nullable="false" />
+          <Property Type="String" Name="MembersCount" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ListsResults">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="GroupMembers" Relationship="ModelVkontakte.ListsResultTableUsers" FromRole="ListsResultTable" ToRole="Users" />
+          <NavigationProperty Name="Posts" Relationship="ModelVkontakte.ListsResultsPosts" FromRole="ListsResults" ToRole="Posts" />
+        </EntityType>
+        <EntityType Name="Operations">
+          <Documentation>
+            <Summary>Таблица операций</Summary>
+            <LongDescription>Таблица операций</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Time" Nullable="false" />
+          <Property Type="Boolean" Name="isSuccess" Nullable="false" />
+          <NavigationProperty Name="BasicMetricksResult" Relationship="ModelVkontakte.OperationTableBasicMetricksResultTable" FromRole="OperationTable" ToRole="BasicMetricksResultTable" />
+          <NavigationProperty Name="ListsResults" Relationship="ModelVkontakte.OperationTableListsResults" FromRole="OperationTable" ToRole="ListsResults" />
+          <Property Type="String" Name="GroupId" Nullable="false" />
+          <NavigationProperty Name="ErrorCodes" Relationship="ModelVkontakte.ErrorCodesOperations" FromRole="Operations" ToRole="ErrorCodes" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserId" Nullable="false" />
+          <NavigationProperty Name="LikedComments" Relationship="ModelVkontakte.CommentsUsers" FromRole="Users" ToRole="Comments" />
+          <NavigationProperty Name="AuthorOfComments" Relationship="ModelVkontakte.CommentsUsers1" FromRole="Users" ToRole="Comments" />
+          <NavigationProperty Name="LikedPosts" Relationship="ModelVkontakte.PostsUsers" FromRole="Users" ToRole="Posts" />
+          <NavigationProperty Name="AuthorOfPosts" Relationship="ModelVkontakte.PostsUsers1" FromRole="Users" ToRole="Posts" />
+          <NavigationProperty Name="ListsResultTables" Relationship="ModelVkontakte.ListsResultTableUsers" FromRole="Users" ToRole="ListsResultTable" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CommentId" Nullable="false" />
+          <NavigationProperty Name="UsersLike" Relationship="ModelVkontakte.CommentsUsers" FromRole="Comments" ToRole="Users" />
+          <NavigationProperty Name="UserAuthor" Relationship="ModelVkontakte.CommentsUsers1" FromRole="Comments" ToRole="Users" />
+          <NavigationProperty Name="Posts" Relationship="ModelVkontakte.PostsComments" FromRole="Comments" ToRole="Posts" />
+        </EntityType>
+        <EntityType Name="Posts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PostId" Nullable="false" />
+          <NavigationProperty Name="UsersLike" Relationship="ModelVkontakte.PostsUsers" FromRole="Posts" ToRole="Users" />
+          <NavigationProperty Name="UserAuthor" Relationship="ModelVkontakte.PostsUsers1" FromRole="Posts" ToRole="Users" />
+          <NavigationProperty Name="Comments" Relationship="ModelVkontakte.PostsComments" FromRole="Posts" ToRole="Comments" />
+          <NavigationProperty Name="ListsResults" Relationship="ModelVkontakte.ListsResultsPosts" FromRole="Posts" ToRole="ListsResults" />
+        </EntityType>
+        <Association Name="CommentsUsers">
+          <End Type="ModelVkontakte.Comments" Role="Comments" Multiplicity="*" />
+          <End Type="ModelVkontakte.Users" Role="Users" Multiplicity="*" />
+        </Association>
+        <Association Name="CommentsUsers1">
+          <End Type="ModelVkontakte.Comments" Role="Comments" Multiplicity="*" />
+          <End Type="ModelVkontakte.Users" Role="Users" Multiplicity="1" />
+        </Association>
+        <Association Name="PostsUsers">
+          <End Type="ModelVkontakte.Posts" Role="Posts" Multiplicity="*" />
+          <End Type="ModelVkontakte.Users" Role="Users" Multiplicity="*" />
+        </Association>
+        <Association Name="PostsUsers1">
+          <End Type="ModelVkontakte.Posts" Role="Posts" Multiplicity="*" />
+          <End Type="ModelVkontakte.Users" Role="Users" Multiplicity="1" />
+        </Association>
+        <Association Name="ListsResultTableUsers">
+          <End Type="ModelVkontakte.ListsResults" Role="ListsResultTable" Multiplicity="*" />
+          <End Type="ModelVkontakte.Users" Role="Users" Multiplicity="*" />
+        </Association>
+        <Association Name="OperationTableBasicMetricksResultTable">
+          <End Type="ModelVkontakte.Operations" Role="OperationTable" Multiplicity="1" />
+          <End Type="ModelVkontakte.BasicMetricksResults" Role="BasicMetricksResultTable" Multiplicity="0..1" />
+        </Association>
+        <Association Name="OperationTableListsResults">
+          <End Type="ModelVkontakte.Operations" Multiplicity="1" Role="OperationTable" />
+          <End Type="ModelVkontakte.ListsResults" Multiplicity="0..1" Role="ListsResults" />
+        </Association>
+        <EntityType Name="ErrorCodes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="Operations" Relationship="ModelVkontakte.ErrorCodesOperations" FromRole="ErrorCodes" ToRole="Operations" />
+          <Property Type="Int32" Name="MethodErrorId" Nullable="false" />
+          <NavigationProperty Name="ErrorCodeState" Relationship="ModelVkontakte.ErrorCodeStatesErrorCodes" FromRole="ErrorCodes" ToRole="ErrorCodeStates" />
+        </EntityType>
+        <Association Name="ErrorCodesOperations">
+          <End Type="ModelVkontakte.ErrorCodes" Role="ErrorCodes" Multiplicity="0..1" />
+          <End Type="ModelVkontakte.Operations" Role="Operations" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ErrorCodeStates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ErrorId" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="ErrorCodes" Relationship="ModelVkontakte.ErrorCodeStatesErrorCodes" FromRole="ErrorCodeStates" ToRole="ErrorCodes" />
+        </EntityType>
+        <Association Name="ErrorCodeStatesErrorCodes">
+          <End Type="ModelVkontakte.ErrorCodeStates" Role="ErrorCodeStates" Multiplicity="1" />
+          <End Type="ModelVkontakte.ErrorCodes" Role="ErrorCodes" Multiplicity="*" />
+        </Association>
+        <Association Name="PostsComments">
+          <End Type="ModelVkontakte.Posts" Role="Posts" Multiplicity="1" />
+          <End Type="ModelVkontakte.Comments" Role="Comments" Multiplicity="*" />
+        </Association>
+        <Association Name="ListsResultsPosts">
+          <End Type="ModelVkontakte.ListsResults" Role="ListsResults" Multiplicity="1" />
+          <End Type="ModelVkontakte.Posts" Role="Posts" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelVkontakteStoreContainer" CdmEntityContainer="ModelVkontakteContainer">
+    <EntitySetMapping Name="TokenListEnt">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelVkontakte.TokenList)">
+        <MappingFragment StoreEntitySet="TokenListEnt">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="SecretKey" ColumnName="SecretKey" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupsEnt">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelVkontakte.Groups)">
+        <MappingFragment StoreEntitySet="GroupsEnt">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="BasicMetrickRegularReading" ColumnName="BasicMetrickRegularReading" />
+          <ScalarProperty Name="BasicMetricksTimeOut" ColumnName="BasicMetricksTimeOut" />
+          <ScalarProperty Name="ListsRegulerReading" ColumnName="ListsRegulerReading" />
+          <ScalarProperty Name="ListsTimeOut" ColumnName="ListsTimeOut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BasicMetricksResultTableEnt">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelVkontakte.BasicMetricksResults)">
+        <MappingFragment StoreEntitySet="BasicMetricksResultTableEnt">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PostCount" ColumnName="PostCount" />
+          <ScalarProperty Name="AudioCount" ColumnName="AudioCount" />
+          <ScalarProperty Name="VideoCount" ColumnName="VideoCount" />
+          <ScalarProperty Name="MembersCount" ColumnName="MembersCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListsResultTableEnt">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelVkontakte.ListsResults)">
+        <MappingFragment StoreEntitySet="ListsResultTableEnt">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OperationTableEnt">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelVkontakte.Operations)">
+        <MappingFragment StoreEntitySet="OperationTableEnt">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="isSuccess" ColumnName="isSuccess" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersНабор">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelVkontakte.Users)">
+        <MappingFragment StoreEntitySet="UsersНабор">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommentsEnt">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelVkontakte.Comments)">
+        <MappingFragment StoreEntitySet="CommentsEnt">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostsEnd">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelVkontakte.Posts)">
+        <MappingFragment StoreEntitySet="PostsEnd">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorCodesEnt">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelVkontakte.ErrorCodes)">
+        <MappingFragment StoreEntitySet="ErrorCodesEnt">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="MethodErrorId" ColumnName="MethodErrorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorCodeStatesEnt">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelVkontakte.ErrorCodeStates)">
+        <MappingFragment StoreEntitySet="ErrorCodeStatesEnt">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ErrorId" ColumnName="ErrorId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="GroupsTokenList" TypeName="ModelVkontakte.GroupsTokenList" StoreEntitySet="GroupsTokenList">
+      <EndProperty Name="Groups">
+        <ScalarProperty Name="Id" ColumnName="Groups_Id" />
+      </EndProperty>
+      <EndProperty Name="TokenList">
+        <ScalarProperty Name="Id" ColumnName="TokenList_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CommentsUsers" TypeName="ModelVkontakte.CommentsUsers" StoreEntitySet="CommentsUsers">
+      <EndProperty Name="Comments">
+        <ScalarProperty Name="Id" ColumnName="LikedComments_Id" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="Id" ColumnName="UsersLike_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CommentsUsers1" TypeName="ModelVkontakte.CommentsUsers1" StoreEntitySet="CommentsEnt">
+      <EndProperty Name="Users">
+        <ScalarProperty Name="Id" ColumnName="UserAuthor_Id" />
+      </EndProperty>
+      <EndProperty Name="Comments">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PostsUsers" TypeName="ModelVkontakte.PostsUsers" StoreEntitySet="PostsUsers">
+      <EndProperty Name="Posts">
+        <ScalarProperty Name="Id" ColumnName="LikedPosts_Id" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="Id" ColumnName="UsersLike_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PostsUsers1" TypeName="ModelVkontakte.PostsUsers1" StoreEntitySet="PostsEnd">
+      <EndProperty Name="Users">
+        <ScalarProperty Name="Id" ColumnName="UserAuthor_Id" />
+      </EndProperty>
+      <EndProperty Name="Posts">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ListsResultTableUsers" TypeName="ModelVkontakte.ListsResultTableUsers" StoreEntitySet="ListsResultTableUsers">
+      <EndProperty Name="ListsResultTable">
+        <ScalarProperty Name="Id" ColumnName="ListsResultTables_Id" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="Id" ColumnName="GroupMembers_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OperationTableBasicMetricksResultTable" TypeName="ModelVkontakte.OperationTableBasicMetricksResultTable" StoreEntitySet="BasicMetricksResultTableEnt">
+      <EndProperty Name="OperationTable">
+        <ScalarProperty Name="Id" ColumnName="OperationTableBasicMetricksResultTable_BasicMetricksResultTable_Id" />
+      </EndProperty>
+      <EndProperty Name="BasicMetricksResultTable">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OperationTableListsResults" TypeName="ModelVkontakte.OperationTableListsResults" StoreEntitySet="ListsResultTableEnt">
+      <EndProperty Name="OperationTable">
+        <ScalarProperty Name="Id" ColumnName="OperationTableListsResults_ListsResults_Id" />
+      </EndProperty>
+      <EndProperty Name="ListsResults">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ErrorCodesOperations" TypeName="ModelVkontakte.ErrorCodesOperations" StoreEntitySet="OperationTableEnt">
+      <EndProperty Name="ErrorCodes">
+        <ScalarProperty Name="Id" ColumnName="ErrorCodes_Id" />
+      </EndProperty>
+      <EndProperty Name="Operations">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ErrorCodes_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ErrorCodeStatesErrorCodes" TypeName="ModelVkontakte.ErrorCodeStatesErrorCodes" StoreEntitySet="ErrorCodesEnt">
+      <EndProperty Name="ErrorCodeStates">
+        <ScalarProperty Name="Id" ColumnName="ErrorCodeState_Id" />
+      </EndProperty>
+      <EndProperty Name="ErrorCodes">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PostsComments" TypeName="ModelVkontakte.PostsComments" StoreEntitySet="CommentsEnt">
+      <EndProperty Name="Posts">
+        <ScalarProperty Name="Id" ColumnName="Posts_Id" />
+      </EndProperty>
+      <EndProperty Name="Comments">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ListsResultsPosts" TypeName="ModelVkontakte.ListsResultsPosts" StoreEntitySet="PostsEnd">
+      <EndProperty Name="ListsResults">
+        <ScalarProperty Name="Id" ColumnName="ListsResults_Id" />
+      </EndProperty>
+      <EndProperty Name="Posts">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="ModelVkontakte" DisplayType="true" ZoomLevel="109" >
+        <EntityTypeShape EntityType="ModelVkontakte.TokenList" Width="1.5" PointX="8.125" PointY="5.25" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="ModelVkontakte.Groups" Width="1.625" PointX="8" PointY="2.375" Height="2.3648893229166674" />
+        <AssociationConnector Association="ModelVkontakte.GroupsTokenList">
+          <ConnectorPoint PointX="8.875" PointY="4.7398893229166674" />
+          <ConnectorPoint PointX="8.875" PointY="5.25" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ModelVkontakte.BasicMetricksResults" Width="1.5" PointX="5.125" PointY="5.375" Height="1.9802864583333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelVkontakte.ListsResults" Width="1.5" PointX="2.875" PointY="5.375" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelVkontakte.Operations" Width="1.5" PointX="4" PointY="8.625" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="ModelVkontakte.Users" Width="1.5" PointX="4" PointY="0.5" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelVkontakte.Comments" Width="1.5" PointX="0.75" PointY="3.625" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelVkontakte.Posts" Width="1.5" PointX="0.75" PointY="0.5" Height="1.9802864583333331" IsExpanded="true" />
+        <AssociationConnector Association="ModelVkontakte.CommentsUsers">
+          <ConnectorPoint PointX="2.25" PointY="4.7413241849772136" />
+          <ConnectorPoint PointX="3.3229146666666667" PointY="4.7413241849772128" />
+          <ConnectorPoint PointX="3.4895813333333336" PointY="4.7413241849772136" />
+          <ConnectorPoint PointX="4.104166666666667" PointY="4.7413241849772128" />
+          <ConnectorPoint PointX="4.270833333333333" PointY="4.7413241849772136" />
+          <ConnectorPoint PointX="4.8730485156249994" PointY="4.7413241849772136" />
+          <ConnectorPoint PointX="4.8730485156249994" PointY="2.8648893229166674" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelVkontakte.CommentsUsers1">
+          <ConnectorPoint PointX="2.25" PointY="4.1076433699544257" />
+          <ConnectorPoint PointX="3.3229146666666667" PointY="4.1076433699544248" />
+          <ConnectorPoint PointX="3.4895813333333336" PointY="4.1076433699544257" />
+          <ConnectorPoint PointX="4.104166666666667" PointY="4.1076433699544248" />
+          <ConnectorPoint PointX="4.270833333333333" PointY="4.1076433699544257" />
+          <ConnectorPoint PointX="4.62109203125" PointY="4.1076433699544257" />
+          <ConnectorPoint PointX="4.62109203125" PointY="2.8648893229166674" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelVkontakte.PostsUsers">
+          <ConnectorPoint PointX="2.25" PointY="2.1799220784505207" />
+          <ConnectorPoint PointX="3.3229146666666667" PointY="2.17992207845052" />
+          <ConnectorPoint PointX="3.4895813333333336" PointY="2.1799220784505207" />
+          <ConnectorPoint PointX="4" PointY="2.1799220784505207" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelVkontakte.PostsUsers1">
+          <ConnectorPoint PointX="2.25" PointY="0.98064697265624989" />
+          <ConnectorPoint PointX="4" PointY="0.98064697265624989" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelVkontakte.ListsResultTableUsers">
+          <ConnectorPoint PointX="4.1875" PointY="5.375" />
+          <ConnectorPoint PointX="4.1875" PointY="2.8648893229166674" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelVkontakte.OperationTableBasicMetricksResultTable">
+          <ConnectorPoint PointX="5.3125" PointY="8.625" />
+          <ConnectorPoint PointX="5.3125" PointY="7.3552864583333326" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelVkontakte.OperationTableListsResults">
+          <ConnectorPoint PointX="4.1875" PointY="8.625" />
+          <ConnectorPoint PointX="4.1875" PointY="6.97068359375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ModelVkontakte.ErrorCodes" Width="1.5" PointX="6.375" PointY="8.75" Height="1.7879850260416657" />
+        <AssociationConnector Association="ModelVkontakte.ErrorCodesOperations">
+          <ConnectorPoint PointX="6.375" PointY="9.7401432291666659" />
+          <ConnectorPoint PointX="5.5" PointY="9.7401432291666659" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ModelVkontakte.ErrorCodeStates" Width="1.5" PointX="8.5" PointY="8.75" Height="1.5956835937499996" />
+        <AssociationConnector Association="ModelVkontakte.ErrorCodeStatesErrorCodes">
+          <ConnectorPoint PointX="8.5" PointY="9.6439925130208337" />
+          <ConnectorPoint PointX="7.875" PointY="9.6439925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelVkontakte.PostsComments">
+          <ConnectorPoint PointX="1.5" PointY="2.4802864583333331" />
+          <ConnectorPoint PointX="1.5" PointY="3.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="ModelVkontakte.ListsResultsPosts">
+          <ConnectorPoint PointX="3.406248" PointY="5.375" />
+          <ConnectorPoint PointX="3.406248" PointY="1.5742751057942708" />
+          <ConnectorPoint PointX="2.25" PointY="1.5742751057942708" />
+        </AssociationConnector>
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
